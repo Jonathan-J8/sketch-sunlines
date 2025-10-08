@@ -4,4 +4,5 @@ import glsl from 'vite-plugin-glsl';
 
 export default defineConfig({
 	plugins: [tailwindcss(), glsl({ minify: true, root: '/src' })],
+	base: '/sketch-sunlines/',
 });
