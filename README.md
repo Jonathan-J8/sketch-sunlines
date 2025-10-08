@@ -1,6 +1,7 @@
 # Sunlines ✨
 
 An interactive Three.js WebGL sketch featuring animated vertical lines with custom shaders, procedural sky effects, and scroll-based interactions.
+https://jonathan-j8.github.io/sketch-sunlines/
 
 ## 🚀 Getting Started
 
