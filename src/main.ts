@@ -14,12 +14,12 @@ import useThreeWrapper from './useThreeWrapper';
 const { scene, gui, renderer, animator, camera, resizer } = useThreeWrapper();
 const pointerUniforms = usePointerUniforms();
 ColorManagement.enabled = true;
-camera.controls.enabled = false;
+const SCENE_HEIGHT = 50;
+let scrollY = 100;
 camera.instance.position.z = 15;
+camera.instance.position.y = scrollY;
 scene.instance.fog = null;
 renderer.instance.toneMapping = LinearToneMapping;
-const SCENE_HEIGHT = 50;
-let scrollY = 0;
 
 // COMPONENTS
 const renderPass = new RenderPass(scene.instance, camera.instance);
@@ -73,6 +73,7 @@ renderer.addEffect(renderPass, bloom.fx, fxaa, output);
 window.addEventListener('scroll', scroll, false);
 resizer.addListener(camera.resize, renderer.resize, bloom.resize);
 animator.addListener(update);
+scroll();
 
 resizer.fire();
 animator.play(renderer.instance);

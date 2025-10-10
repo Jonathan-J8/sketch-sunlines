@@ -9,6 +9,7 @@ const threeRenderer = new WebGLRenderer({ canvas });
 const threeCamera = new PerspectiveCamera(75, 2, 0.1, 1000);
 const threeScene = new Scene();
 const threeControls = new OrbitControls(threeCamera, canvas);
+threeControls.enabled = false;
 
 // WRAPPERS & EMITTERS
 const animator = new Animator();

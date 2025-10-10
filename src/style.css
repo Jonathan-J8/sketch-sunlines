@@ -14,3 +14,17 @@ html {
 * {
 	scroll-behavior: smooth;
 }
+
+@keyframes loader-keyframes {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		pointer-events: none;
+		display: none;
+	}
+}
+#loader {
+	animation: loader-keyframes 1s ease-in-out 0.3s 1 normal forwards;
+}
