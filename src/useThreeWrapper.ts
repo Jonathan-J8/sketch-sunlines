@@ -1,14 +1,23 @@
 import { Animator, CameraWrapper, RendererWrapper, Resizer, SceneWrapper } from 'joeat-utils';
-import { PerspectiveCamera, Quaternion, Scene, Vector2, Vector3, WebGLRenderer } from 'three';
+import {
+	OrthographicCamera,
+	PerspectiveCamera,
+	Quaternion,
+	Scene,
+	Vector2,
+	Vector3,
+	WebGLRenderer,
+} from 'three';
 import { EffectComposer, OrbitControls } from 'three/examples/jsm/Addons.js';
 import GUI from 'three/examples/jsm/libs/lil-gui.module.min.js';
 
 // THREE
 const canvas = document.getElementById('three') as HTMLCanvasElement;
 const threeRenderer = new WebGLRenderer({ canvas });
-const threeCamera = new PerspectiveCamera(75, 2, 0.1, 1000);
+const perspectiveCamera = new PerspectiveCamera(75, 2, 0.1, 1000);
+const orthographicCamera = new OrthographicCamera(-1, 1, 1, -1, 0.1, 1000);
 const threeScene = new Scene();
-const threeControls = new OrbitControls(threeCamera, canvas);
+const threeControls = new OrbitControls(perspectiveCamera, canvas);
 threeControls.enabled = false;
 
 // WRAPPERS & EMITTERS
@@ -17,7 +26,8 @@ const resizer = new Resizer(canvas);
 const scene = new SceneWrapper({ instance: threeScene });
 const renderer = new RendererWrapper({ instance: threeRenderer, EffectComposer, Vector2 });
 const camera = new CameraWrapper({
-	instance: threeCamera,
+	perspective: perspectiveCamera,
+	orthographic: orthographicCamera,
 	controls: threeControls,
 	Vector3,
 	Quaternion,

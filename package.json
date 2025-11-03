@@ -16,7 +16,7 @@
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.1.14",
-		"joeat-utils": "github:Jonathan-J8/joeat-utils#dist-only",
+		"joeat-utils": "github:Jonathan-J8/joeat-utils#v1.2.2",
 		"tailwindcss": "^4.1.14",
 		"three": "^0.180.0",
 		"vite-plugin-glsl": "^1.5.4"
